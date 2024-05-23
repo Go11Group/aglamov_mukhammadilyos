@@ -1,0 +1,41 @@
+create database go_n11;
+\c go_n11
+create table student (id serial primary key, name varchar,age int ,XP float);
+insert into student (name, age, XP) values ('Firdavs', 23, 70.9),('Husan', 24, 75.9),('Aziz', 19, 74.8),('Hojiakbar', 21, 70.5),('Ozod', 18, 69.5),('Dima', 33, 70.6),('Xondamir', 21, 78.1),('Javohir', 20, 70.9),('Dilmurod', 17, 73.5),('Mardon', 19, 79.2);
+go_n11=# select * from  student                                                 ;
+ id |   name    | age |  xp
+----+-----------+-----+------
+  1 | Firdavs   |  23 | 70.9
+  2 | Husan     |  24 | 75.9
+  3 | Aziz      |  19 | 74.8
+  4 | Hojiakbar |  21 | 70.5
+  5 | Ozod      |  18 | 69.5
+  6 | Dima      |  33 | 70.6
+  7 | Xondamir  |  21 | 78.1
+  8 | Javohir   |  20 | 70.9
+  9 | Dilmurod  |  17 | 73.5
+ 10 | Mardon    |  19 | 79.2
+
+UPDATE student
+go_n11-# SET age = 21
+go_n11-# WHERE id = 9;
+
+
+update student
+set name = 'Fedya', age = 22
+WHERE id = 1;
+
+delete from student
+where name = 'Fedya';
+
+select age
+from student
+group by age;
+
+select name
+from student
+group by name;
+
+go_n11=# select name, age ,XP
+from student
+order by XP ;
